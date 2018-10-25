@@ -49,7 +49,7 @@ attr_accessor :name, :breed, :id
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?",hash[:name], hash[:breed])
     #binding.pry
     if !dog.empty?
-      binding.pry
+      #binding.pry
       self.find_by_id(dog.first["id"])
     else
       #binding.pry
