@@ -61,7 +61,7 @@ attr_accessor :name, :breed, :id
     Dog.new(name: info["name"], breed: info["breed"], id: info["id"])
   end
   
-  def self.update 
-    
+  def update 
+    DB[:conn].execute("UPDATE "
   end
 end
