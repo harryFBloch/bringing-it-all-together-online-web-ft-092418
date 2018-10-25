@@ -52,4 +52,8 @@ attr_accessor :name, :breed, :id
     end
   end
   
+  def self.new_from_db(row)
+    self.create(row)
+  end
+  
 end
