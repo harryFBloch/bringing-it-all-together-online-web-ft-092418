@@ -58,6 +58,6 @@ attr_accessor :name, :breed, :id
   
   def self.find_by_name(name)
     info = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name)
-    Dog.new
+    Dog.create(info)
   end
 end
