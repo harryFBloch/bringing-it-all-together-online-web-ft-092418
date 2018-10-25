@@ -26,6 +26,7 @@ attr_accessor :name, :breed, :id
   end
   
   def self.create(hash)
+    binding.pry
     dog = Dog.new()
     hash.each {|key, value|
       dog.send("#{key}=",value)
