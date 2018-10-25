@@ -62,6 +62,6 @@ attr_accessor :name, :breed, :id
   end
   
   def update 
-    DB[:conn].execute("UPDATE "
+    DB[:conn].execute("UPDATE dogs SET name = ?, breed = ?", self.name, self.breed)
   end
 end
