@@ -22,6 +22,7 @@ attr_accessor :name, :breed, :id
       DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?,?)",self.name,self.breed)
       #binding.pry
       self.id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ?",self.name)[0][0]
+      binding.pry
     end
     self
   end
