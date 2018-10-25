@@ -47,7 +47,7 @@ attr_accessor :name, :breed, :id
   def self.find_or_create_by(hash)
     
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?",hash[:name], hash[:breed])
-    #binding.pry
+    binding.pry
     if !dog.empty?
       #binding.pry
       self.find_by_id(dog.first["id"])
