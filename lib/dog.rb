@@ -17,10 +17,11 @@ attr_accessor :name, :breed, :id
   
   def save
     if self.id 
-      
+      binding.pry
     else 
       DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?,?)",self.name,self.breed)
       self.id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ?",self.name)[0][0]
+      binding.pry
     end
     self
   end
@@ -37,7 +38,7 @@ attr_accessor :name, :breed, :id
     DB[:conn].results_as_hash = true
     info = DB[:conn].execute(
       "SELECT * FROM dogs WHERE id = ?",id).first
-    #binding.pry
+    
     dog = Dog.new(name: info["name"], breed: info["breed"], id: info["id"])
     dog.save
   end
@@ -51,8 +52,6 @@ attr_accessor :name, :breed, :id
       self.find_by_id(dog.first["id"])
     else
       dog = Dog.create(hash)
-      binding.pry
-      dog
     end
   end
   
