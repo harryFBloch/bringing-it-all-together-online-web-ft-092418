@@ -51,7 +51,7 @@ attr_accessor :name, :breed, :id
       #binding.pry
       self.find_by_id(dog.first["id"])
     else
-      binding.pry
+      #binding.pry
       dog = Dog.create(hash)
       
     end
