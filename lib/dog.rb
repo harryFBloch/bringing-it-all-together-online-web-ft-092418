@@ -53,8 +53,7 @@ attr_accessor :name, :breed, :id
   end
   
   def self.new_from_db(row)
-    binding.pry
-    self.create(row)
+    self.new(id: row[0], name: row[1], breed: row[2])
   end
   
 end
