@@ -20,7 +20,7 @@ attr_accessor :name, :breed, :id
       binding.pry
     else 
       DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?,?)",self.name,self.breed)
-      self.id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ?",self.name)[0][0]
+      self.id = DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?",self.name, self.breed)[0][0]
       binding.pry
     end
     self
